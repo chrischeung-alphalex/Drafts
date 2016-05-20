@@ -1,0 +1,13 @@
+# EOM NAV Estimate Calculation
+
+## Compare internal cash record versus PB
+
+- Examine internal cash records in "C:\Users\Alphalex Admin\Dropbox\Alphalex Operations\Cash\cash movement_fund.xlsx"
+- Make sure interest and fees are present (usually dated EOM+1)
+
+### Create workbook
+- create workbook like "C:\Users\Alphalex Admin\Dropbox\Alphalex Operations\AUM\ACOF - Investment March 2016\ACOF_AUM 20160331_Est.xlsx"
+- copying formulae from prior month (e.g., "C:\Users\Alphalex Admin\Dropbox\Alphalex Operations\AUM\ACOF - Investment Feb 2016\ACOF_AUM 20150229.xlsx")
+
+### Check positions in workbook
+- make sure positions in workbook match PB statements

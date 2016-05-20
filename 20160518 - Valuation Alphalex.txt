@@ -1,0 +1,27 @@
+# Valuation
+## Questions
+- Where is the monthly [Profit Allocation] from?
+
+## Calculations
+- [Profit Allocation] (per series) = series proportion of total [Allocation Base] * [Profit Allocation] (total)
+- [Mgt Fee] (per series) = ([Allocation Base] + [Profit Allocation]) * [Mgt Fee Rate] * (number of days in month) * (actual number of days in year)
+- [GAV] = ([Allocation Base] + [Profit Allocation] - [Mgt Fee]) / [Shares Outstanding] (per series)
+- [Perf Fee]:
+      IF [Shares Outstanding] <> 0 THEN:
+        IF NOT [Reset] THEN:
+          IF [GAV b/f] > [High Water Mark] THEN:
+            IF [GAV] < [High Water Mark] THEN:
+              [Perf Fee] = ([High Water Mark] - [GAV b/f]) * [Shares Outstanding] * [Perf Fee Rate]
+            ELSE:
+              [Perf Fee] = ([Profit Allocation] - [Mgt Fee]) * [Perf Fee Rate]
+          ELSE:
+            IF [Profit Allocation] > [Mgt Fee] AND [GAV] > [High Water Mark] THEN:
+              [Perf Fee] = ([GAV] - [High Water Mark]) * [Shares Outstanding] * [Perf Fee Rate]
+            ELSE:
+              [Perf Fee] = 0
+        ELSE:
+          [Perf Fee] = (MAX([Profit Allocation] - [Mgt Fee], 0)) * [Perf Fee Rate]
+- [Closing Net Cap] = [Net Asset b/f] + [Capital Movement] + [Profit Allocation] - [Mgt Fee] - [Perf Fee]
+- [GAV] = ([Allocation Base] + [Profit Allocation] - [Mgt Fee]) / [Shares Outstanding]
+- [NAV] = [Closing Net Cap] / [Shares Outstanding]
+- [Accrued Perf Fee] = ([GAV] - [High Water Mark]) * [Shares Outstanding] * [Perf Fee Rate]
